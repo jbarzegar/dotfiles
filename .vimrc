@@ -58,7 +58,7 @@ call plug#end()            " required
 " Core Functionality (general settings, keyboard shortcuts)
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- set encoding=utf-8
+set encoding=utf-8
 
  "Map leader to spacebar
 let mapleader="\<Space>"
@@ -75,8 +75,9 @@ set laststatus=2
 set autowrite
 set modelines=0
 set wildmenu
+set spell "spell check
 
-" deal with swps and backups here
+"deal with swps and backups here
 set timeoutlen=1000  "speed vim up
 set ttimeoutlen=0  "https://stackoverflow.com/questions/37644682/why-is-vim-so-slow/37645334
 set ttyfast  "Rendering
