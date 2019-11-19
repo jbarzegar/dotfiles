@@ -214,10 +214,14 @@ set title titlestring=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_fixers = ['prettier']
+" Default formatters for ES/ES-based languages
+:let default_es_formatters = ['eslint', 'prettier']
+
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['prettier', 'eslint'],
+\ 'javascript': default_es_formatters,
+\ 'typescript': default_es_formatters,
+\ 'typescriptreact': default_es_formatters,
 \ 'ruby': ['rubocop']
 \}
 let g:ale_fix_on_save = 1
@@ -241,6 +245,8 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
+
+nmap <leader>ag :Ack
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

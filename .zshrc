@@ -14,6 +14,7 @@ export GOPATH=$HOME/go
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 #alias
+alias cls="clear"
 alias reload="clear && source ~/.zshrc"
 alias yw="yarn workspace"
 alias cask="brew cask"
