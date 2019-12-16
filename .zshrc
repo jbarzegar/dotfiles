@@ -1,10 +1,14 @@
+POSTGRES_VERSION=10
+
 export VISUAL="nvim"
 export EDITOR="nvim"
 export NVM_DIR="$HOME/.nvm"
-export PATH=$PATH:~/.bin:/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export GIT_EDITOR="$EDITOR"
-export PGHOST=localhost
+export PGHOST="localhost"
 export GOPATH=$HOME/go
+
+export PATH=$PATH:$GOPATH:$HOME/.bin
 
 # Source Prezto.
 [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ] && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -32,7 +36,10 @@ alias vifzf='vim -c "FZF"'
 alias gpsf="git push --force-with-lease"
 
 ######## For on call #######
-alias on_call_console="heroku run -a policy-admin-production rails c"
+function __run_on_call_console() {
+	heroku run -a policy-admin-production rails console production
+}
+alias on_call_console="~/.bin/open-iterm.sh __run_on_call_console"
 
 
 eval "$(rbenv init -)"
@@ -44,3 +51,7 @@ export DISABLE_SPRING=true
 
 # fnm
 eval "$(fnm env --multi)"
+
+if ! yadm diff-index --quiet HEAD --; then
+	echo "🚨 Yadm has uncommited changes: run 'yadm status'"
+fi

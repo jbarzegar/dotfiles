@@ -13,12 +13,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Start screen
+Plug 'mhinz/vim-startify'
+
 " Themes
 Plug 'chriskempson/base16-vim'
 Plug 'ryanoasis/vim-devicons' "Icons for filetypes
 Plug 'itchyny/lightline.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 
+
+Plug 'luochen1990/rainbow'
 
 " Language Syntax Support
 Plug 'peitalin/vim-jsx-typescript', { 'branch': 'main' }
@@ -34,10 +39,12 @@ Plug 'tpope/vim-fugitive' "Git tools
 Plug 'tpope/vim-surround' "Surround
 Plug 'mileszs/ack.vim' "Searcher
 Plug 'mattn/emmet-vim' "A bit annoying because it takes over my Tab key
-Plug 'scrooloose/nerdtree' "Nerdtree
+Plug 'scrooloose/nerdtree', {  } "Nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
 Plug 'neoclide/coc-eslint'
+Plug 'liuchengxu/vim-which-key'
 Plug 'dense-analysis/ale'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
@@ -46,6 +53,9 @@ Plug 'junegunn/goyo.vim'
 "Ranger integration
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+
+Plug 'kamykn/spelunker.vim'
+
 
 
 " All of your Plugins must be added before the following line
@@ -73,9 +83,11 @@ set showcmd
 set incsearch
 set laststatus=2
 set autowrite
+set autoread
 set modelines=0
 set wildmenu
-set spell "spell check
+"set nospell
+set nospell
 
 "deal with swps and backups here
 set timeoutlen=1000  "speed vim up
@@ -106,19 +118,21 @@ nmap <leader>nhl :nohl<cr>
 cnoreabbrev reloadConf so ~/.vimrc<CR>
 nmap <leader>rc :so ~/.vimrc<cr>
 
-
+"Yoink the current path
+nnoremap ,c :let @* = expand("%:p").":".line('.')<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+
 "Changes NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<Enter>
+nmap <leader>nf :NERDTreeFind<CR>
 
 
 
@@ -138,7 +152,12 @@ nmap <leader>n :NERDTreeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ranger_map_keys = 0  "Disable the annoying <leader>f key
 
-nmap <leader>fm :RangerNewTab<CR>
+function OpenFM()
+	:tabnew
+	:Ranger
+endfunction
+
+nmap <leader>fm :Ranger<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
@@ -186,6 +205,7 @@ set textwidth=0
 set wrapmargin=0
 set wrap
 set linebreak
+set breakindent
 set columns=80
 
 
@@ -222,6 +242,7 @@ let g:ale_fixers = {
 \ 'javascript': default_es_formatters,
 \ 'typescript': default_es_formatters,
 \ 'typescriptreact': default_es_formatters,
+\ 'markdown': ['prettier', 'textlint'],
 \ 'ruby': ['rubocop']
 \}
 let g:ale_fix_on_save = 1
@@ -254,3 +275,16 @@ nmap <leader>ag :Ack
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable jbuilder syntax
 au BufNewFile,BufRead *.json.jbuilder set syntax=ruby
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => spelunker
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable spelunker.vim. (default: 1)
+" 1: enable
+" 0: disable
+let g:enable_spelunker_vim = 1
+
+
+ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle

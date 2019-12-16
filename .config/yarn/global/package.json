@@ -9,6 +9,7 @@
     "pm2": "^3.5.1",
     "prettier": "^1.19.1",
     "prisma": "^1.32.2",
+    "textlint": "^11.5.0",
     "typescript": "^3.6.4",
     "typescript-language-server": "^0.4.0"
   }
