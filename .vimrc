@@ -112,11 +112,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " save with zz
 nnoremap zz :update<cr>
 " quickly remove highlighting
-nmap <leader>nhl :nohl<cr>
+nnoremap <leader>nhl :nohl<cr>
 
 " Reload vim config
 cnoreabbrev reloadConf so ~/.vimrc<CR>
-nmap <leader>rc :so ~/.vimrc<cr>
+nnoremap <leader>rc :so ~/.vimrc<cr>
 
 "Yoink the current path
 nnoremap ,c :let @* = expand("%:p").":".line('.')<cr>
@@ -131,8 +131,8 @@ let NERDTreeDirArrows = 1
 
 "Changes NerdTree Toggle to Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
-nmap <leader>n :NERDTreeToggle<Enter>
-nmap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<Enter>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 
 
@@ -185,7 +185,7 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -267,7 +267,7 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
-nmap <leader>ag :Ack
+nnoremap <leader>ag :Ack
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
