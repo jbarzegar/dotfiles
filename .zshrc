@@ -55,3 +55,5 @@ eval "$(fnm env --multi)"
 if ! yadm diff-index --quiet HEAD --; then
 	echo "🚨 Yadm has uncommited changes: run 'yadm status'"
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
