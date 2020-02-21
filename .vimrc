@@ -281,6 +281,8 @@ set title titlestring=
 " Default formatters for ES/ES-based languages
 :let default_es_formatters = ['eslint', 'prettier']
 
+autocmd BufWritePre * :%s/\s\+$//e
+
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': default_es_formatters,
