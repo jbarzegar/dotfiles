@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "create-next-app": "^9.3.4",
     "create-react-app": "^3.1.1",
     "create-react-library": "^2.6.7",
     "fkill-cli": "^5.2.0",
     "gatsby-cli": "^2.7.54",
+    "generator-code": "^1.2.13",
     "ghost-cli": "^1.12.0",
     "lock-cli": "^1.2.0",
     "pm2": "^4.2.1",
@@ -11,6 +13,7 @@
     "prisma": "^1.32.2",
     "textlint": "^11.5.0",
     "typescript": "^3.6.4",
-    "typescript-language-server": "^0.4.0"
+    "typescript-language-server": "^0.4.0",
+    "yo": "^3.1.1"
   }
 }

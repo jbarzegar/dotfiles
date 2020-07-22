@@ -7,6 +7,8 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export GIT_EDITOR="$EDITOR"
 export PGHOST="localhost"
 export GOPATH=$HOME/go
+export DENO_INSTALL="/Users/James/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH=$PATH:$GOPATH:$HOME/.bin
 

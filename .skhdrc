@@ -156,8 +156,10 @@ ctrl + alt - d : yabai -m space --layout float
 
 # 0x1B = - decrease
 alt - 0x1B : yabai -m space --gap rel:-10;
-shift + alt - 0x1B : yabai -m space --padding rel:-10:-5:-10:-5
+shift + alt - 0x1B : yabai -m space --padding rel:0:0:-10:-10;
+ctrl + alt - 0x1B : yabai -m space --padding rel:-10:-10:0:0;
 
 # 0x18 = + increase
 alt - 0x18 : yabai -m space --gap rel:10;
-shift + alt - 0x18 : yabai -m space --padding rel:10:5:10:5
+shift + alt - 0x18 : yabai -m space --padding rel:0:0:10:10;
+ctrl + alt - 0x18 : yabai -m space --padding rel:10:10:0:0;
