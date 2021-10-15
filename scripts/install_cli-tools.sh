@@ -9,6 +9,7 @@ packages=(
   zsh
   fzf
   jq
+  ripgrep
 )
 
 linux_packages=(
@@ -28,15 +29,13 @@ if [ $UNAME = "Darwin" ]; then
 elif command -v apt-get &> /dev/null; 
 then
   INSTALL_BIN="apt-get install -ys"
-  echo "may require sudo"
 elif command -v pacman &> /dev/null;
 then
   INSTALL_BIN="pacman -S"
-  echo "may require sudo"
 else
   echo "cannot get install bin"
   exit 1
 fi
 
 
-echo "$INSTALL_BIN ${packages[@]}"
+echo "${packages[@]}"
