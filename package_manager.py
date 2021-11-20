@@ -2,6 +2,7 @@
 
 import traceback
 import subprocess
+import re
 from enum import Enum
 from time import sleep
 
@@ -55,41 +56,52 @@ class PSearchResult(Enum):
 class Packager:
     packager_name = '__omg_please_dont_use_me__'
 
-    def search(name):
+    def search(self, package_name, **kwargs):
         pass
 
-    def install(pkgName):
+    def install(self, package_name, **kwargs):
         pass
 
 
 class ManjaroPackager(Packager):
     packager_name = "pamac"
 
-    def __init__(self, install_options='--no-confirm', search_options=""):
-        self.install_options = install_options
-        self.search_options = search_options
+    def __init__(self, install_options='--no-confirm', search_options="-q"):
+        self.default_install_options = install_options
+        self.default_search_options = search_options
         self.packager_name = self.__class__.packager_name
 
-    def search(self, package_name):
+    def search(self, package_name, **kwargs):
+        search_options = kwargs.get(
+            'options_override', self.default_search_options)
+
         cmd = f'{self.packager_name} search'
-        cmd = f'{cmd} {self.search_options} {package_name}'
+        cmd = f'{cmd} {search_options} {package_name}'
 
-        (exit_code, output) = subprocess.getstatusoutput(cmd)
+        # make sure there's always a quiet flag
+        if "-q" or "--quiet" not in search_options:
+            cmd = f'{cmd} --quiet'
 
-        if exit_code == 127 or output == "" and exit_code == 0:
-            return PSearchResult.NOT_FOUND
-        elif exit_code == 0:
-            if output == subprocess.getstatusoutput(f'{cmd} -h')[1]:
-                print(output)
-                raise Exception(f'invalid command {cmd}')
+        # this could be smarter, support partial results? (too much?)
+        # The packager might be a bad place to do that.
+        # General search logic should be lifted into the PackageManager
+        # If the exact match isn't found throw not found
+        cmd = f'{cmd} | grep -E "^{package_name}$" || exit 127'
 
+        try:
+            subprocess.check_output(cmd, shell=True)
             return PSearchResult.FOUND
-        else:
-            raise Exception(f"unhandled exit code {exit_code}")
+        except subprocess.CalledProcessError as err:
+            if err.returncode == 127:
+                return PSearchResult.NOT_FOUND
+            else:
+                raise Exception(f"unhandled exit code {err.returncode}")
 
-    def install(self, pkg):
-        cmd = [f"{self.packager_name} install {self.install_options} {pkg}"]
-        print(cmd)
+    def install(self, pkg, **kwargs):
+        install_options = kwargs.get(
+            'options_override', self.default_install_options)
+
+        cmd = [f"{self.packager_name} install {install_options} {pkg}"]
 
         try:
             res = subprocess.run(
@@ -202,7 +214,7 @@ class PackageManager:
                 fn = install.get('build_fn')
 
                 try:
-                    fn(name)
+                    fn(pkg_name=name, log=self.log, packager=self.packager)
 
                     self.log(
                         f"{colors.OKGREEN}Build for package: {name} completed{colors.ENDC} \n")

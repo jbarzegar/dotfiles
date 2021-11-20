@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-#
+from packages import PACKAGES
+
+
 class NotImplementedError(Exception):
     pass
 
@@ -50,17 +52,11 @@ def build_zoom_install():
 
 
 def setup_DE():
-    gui_packages = (
-        "firefox",
-        "font-manager",
-        "gparted",
-        "pcmanfm",
-        ("zoom", build_zoom_install),
-    )
+    gui_packages = PACKAGES["gui"]
     # TODO setup zoom > custom build script needed
     # https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_5562a050-fe90-4372-90ca-cb3bb3e8f310
 
-    de_packages = ("polybar", "rofi", "rofi-emoji", "picom", "alacritty", "nitrogen")
+    de_packages = PACKAGES["de"]
 
     # setup_i3()
 

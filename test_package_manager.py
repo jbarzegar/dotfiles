@@ -82,6 +82,9 @@ class TestPackageManager(unittest.TestCase):
 
         self.assertTrue(installed)
 
+        # they're shouldn't be any installables left after install
+        self.assertEqual(manager.get_installable(), [])
+
     def test_uncallable_build_fn(self):
         manager = self._get_packer()
 
@@ -133,6 +136,16 @@ class TestManjaroPackager(unittest.TestCase):
         packager = self.setup_packager()
 
         result = packager.search('some-failed-package')
+
+        self.assertEqual(result, PSearchResult.NOT_FOUND)
+
+    def test_manjaro_search__partial_result_found(self):
+        packager = self.setup_packager()
+
+        # no exact package named python- ...
+        # this test case is to consider typos or in the case that a package's name differs
+        # albiet it's by no means perfect
+        result = packager.search('python-')
 
         self.assertEqual(result, PSearchResult.NOT_FOUND)
 
