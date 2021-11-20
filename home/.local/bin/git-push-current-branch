@@ -1,0 +1,16 @@
+#!/bin/bash
+# Pushes provides branch or the current branch
+#
+#
+REMOTE="origin"
+
+if [[ "$1" == "" ]];then
+    BRANCH=$(git-current-branch)
+
+else
+    BRANCH=$1
+    echo "Using provided branch $1"
+fi
+
+
+git push -u "$REMOTE" "$BRANCH"

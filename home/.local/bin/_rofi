@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rofi -show drun -show-icons -drun-icon-theme "Papirus" -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
