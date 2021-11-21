@@ -28,23 +28,6 @@ PACKAGES = {
         "xorg-xwininfo",
         "zsh"
     ),
-    "langs": (
-        (("node", builders.node.build),
-         "docker",
-         "docker-compose"),
-    ),
-    "editor": (
-        "emacs",
-    ),
-    "fonts": (),
-    "gui": (
-        "firefox",
-        "font-manager",
-        "gparted",
-        "pcmanfm",
-        ('zoom', builders.zoom.build)
-    ),
-
     "de": (
         "alacritty",
         "rofi",
@@ -52,11 +35,47 @@ PACKAGES = {
         "polybar",
         "picom",
         "nitrogen",
+        "playerctl",
         # everything i3 related
         "i3-gaps",
         "i3lock",
         "i3exit",
         "python-i3ipc",
         "autotiling",
-    )
+    ),
+    "langs": (
+        (("node", builders.node.build),
+         "docker",
+         "docker-compose"),
+    ),
+    "editor": (
+        "emacs",
+        ("vscode", builders.vscode.build)
+    ),
+    "fonts": (
+        "font-manager",
+        "ttf-hack",
+        "ttf-bitstream-vera",
+        "ttf-dejavu",
+        "ttf-droid",
+        "ttf-fira-code",
+        "ttf-font-icons",
+        "ttf-hack",
+        "ttf-ibm-plex",
+        "ttf-inconsolata",
+        "ttf-indic-otf",
+        "ttf-liberation",
+        "ttf-montserrat",
+        "ttf-nerd-fonts-symbols",
+        "ttf-opensans",
+        "noto-fonts",
+
+    ),
+    "gui": (
+        "firefox",
+        "font-manager",
+        "gparted",
+        "pcmanfm",
+        ('zoom', builders.zoom.build)
+    ),
 }
