@@ -46,11 +46,6 @@ def setup_i3():
     raise NotImplementedError("i3")
 
 
-def build_zoom_install():
-    # https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_5562a050-fe90-4372-90ca-cb3bb3e8f310
-    tar_download_url = "https://zoom.us/client/latest/zoom_x86_64.pkg.tar.xz"
-
-
 def setup_DE():
     gui_packages = PACKAGES["gui"]
     # TODO setup zoom > custom build script needed

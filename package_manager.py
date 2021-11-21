@@ -2,9 +2,10 @@
 
 import traceback
 import subprocess
-import re
 from enum import Enum
 from time import sleep
+
+from util import colors, every
 
 # This installer should scaffold packages needed for each portion of the system
 #
@@ -25,27 +26,6 @@ from time import sleep
 #
 #
 #
-
-
-class colors:
-    HEADER = '\033[95m'
-    LIGHTGREY = '\033[37m'
-    DARKGREY = '\033[90m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-
-def every(iterable):
-    for x in iterable:
-        if x:
-            return True
-    return False
 
 
 class PSearchResult(Enum):

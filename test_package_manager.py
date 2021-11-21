@@ -4,9 +4,7 @@ import sys
 
 from package_manager import PackageManager, ManjaroPackager, PSearchResult
 
-
-def noop(*args, **kwargs):
-    return None
+from util import noop, yell
 
 
 class MockPackager:
@@ -94,8 +92,6 @@ class TestPackageManager(unittest.TestCase):
             self.assertEqual(str(err), "build_fn must be callable")
 
     def test_failed_custom_builds(self):
-        def yell(name):
-            raise Exception(name)
 
         builds = (
             ('a', lambda x: yell('package a is yelling from a test!')),
