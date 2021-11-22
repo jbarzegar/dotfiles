@@ -2,8 +2,10 @@
 import subprocess
 from getpass import getpass
 
+# NOTE manjaro needs to symlink /var/lib/snapd/snap before running snaps
 
-def build():
+
+def build(**kwargs):
     print('installing vscode via snap!')
 
     pw = getpass('Please provided sudo password: ')

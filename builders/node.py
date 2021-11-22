@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import os
 import stat
@@ -35,7 +35,9 @@ def build(**kwargs):
 
     # move into bin
     binary_home_path = f"{Path.home()}/.local/bin"
-    os.replace(binary_path, binary_home_path)
+    os.makedirs(binary_home_path, exist_ok=True)
+
+    os.replace(binary_path, f"{binary_home_path}/fnm")
 
     # mark as executable
     os.chmod(binary_home_path, stat.S_IEXEC)

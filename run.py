@@ -2,7 +2,7 @@
 from packages import PACKAGES
 from package_manager import PackageManager, ManjaroPackager
 
-packager = ManjaroPackager(install_options='-d')
+packager = ManjaroPackager(install_options='--no-confirm')
 manager = PackageManager(packager)
 
 
@@ -41,7 +41,7 @@ def setup_emacs():
     # install doom
     # move doom config
     # install language servers (should that be apart of my doom config?)
-    raise NotImplementedError("emacs")
+    pass
 
 
 def setup_fonts():
@@ -75,8 +75,6 @@ def setup_de():
     install_staged_packages()
 
     setup_fonts()
-
-    raise NotImplementedError("de")
 
 
 # Setup Distro, DE & Essentials
@@ -113,3 +111,6 @@ def main():
     setup_de()
     print('setting up editors')
     setup_editors()
+
+if __name__ == "__main__":
+    main()

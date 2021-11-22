@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #
-import builders
+import builders.node
+import builders.zoom
+import builders.vscode
 
 
 PACKAGES = {
@@ -44,9 +46,9 @@ PACKAGES = {
         "autotiling",
     ),
     "langs": (
-        (("node", builders.node.build),
+        ("node", builders.node.build),
          "docker",
-         "docker-compose"),
+         "docker-compose",
     ),
     "editor": (
         "emacs",

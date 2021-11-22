@@ -126,12 +126,14 @@ class PackageManager:
         else:
             installable = {"name": name}
 
+            is_callable = callable(build_fn)
+
             # test if build_fn is the right value
-            if callable(build_fn):
+            if is_callable:
                 installable["build_fn"] = build_fn
 
             # test search result
-            if self.packager.search(name) is PSearchResult.NOT_FOUND:
+            if not is_callable and self.packager.search(name) is PSearchResult.NOT_FOUND:
                 raise Exception(f'{name} could not be found by packager')
 
             self.installable.append(installable)
