@@ -20,7 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'medium)
-      doom-variable-pitch-font (font-spec :family "sans" :size 16))
+      doom-variable-pitch-font (font-spec :family "sans" :size 14))
 
 ;; set treemacs theme
 (setq doom-themes-treemacs-theme "doom-colors")
@@ -62,3 +62,10 @@
 ;; TODO make prettier work as a web mode formatter
 ;; set prettier on save hook globally (format-all sets it per buffer and it doesn't apply it correctly all the time)
 (add-hook 'after-init-hook #'global-prettier-mode)
+
+
+;; if yo
+(if (getenv "USE_HIDPI")
+    (setq doom-font (font-spec :family "Fira Code" :size 30 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "sans" :size 20))
+)
