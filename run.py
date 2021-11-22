@@ -3,7 +3,7 @@ from packages import PACKAGES
 from package_manager import PackageManager, ManjaroPackager
 
 packager = ManjaroPackager(install_options='--no-confirm')
-manager = PackageManager(packager)
+manager = PackageManager(packager, log=print)
 
 
 def stage_packages_for_install(pkg_list):
