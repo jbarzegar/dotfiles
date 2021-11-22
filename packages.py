@@ -9,6 +9,7 @@ PACKAGES = {
     "base": (
         "curl",
         "curlie",
+        "fd",
         "fzf",
         "git",
         "glances",
@@ -17,6 +18,7 @@ PACKAGES = {
         "less",
         "lesspipe",
         "neovim",
+        "ripgrep",
         "speedtest-cli",
         "sqlite",
         "tldr",

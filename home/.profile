@@ -8,3 +8,14 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/firefox
 
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export GDK_SCALE=2
+
+#enable hidpi
+#export USE_HIDPI=true
+
+if $USE_HIDPI; then
+  xrdb -merge $HOME/.Xresources.d/hidpi
+fi
+
+

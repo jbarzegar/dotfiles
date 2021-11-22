@@ -1,3 +1,5 @@
+#
+#
 # Editors
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -39,3 +41,10 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 
+# support hipi
+#export USE_HIDPI=true
+#
+#
+#
+
+source $HOME/.profile

@@ -13,7 +13,12 @@ export LESS=' -R '
 
 
 # Source Prezto.
-[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ] && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
+	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+else
+	echo "installing zprezto"
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
 
 
 #alias
@@ -39,7 +44,12 @@ eval "`fnm env`"
 
 SCM_BREE_DIR="$HOME/.scm_breeze/scm_breeze.sh"
 
-[ -s "/home/james/.scm_breeze/scm_breeze.sh" ] && source "$SCM_BREE_DIR"
+if [ -s "/home/james/.scm_breeze/scm_breeze.sh" ]; then 
+	source "$SCM_BREE_DIR"
+else
+	git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+	~/.scm_breeze/install.sh
+fi
 
 alias disable_getty="sudo systemctl disable getty@tty2.service"
 
