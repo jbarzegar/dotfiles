@@ -3,10 +3,11 @@
 import builders.node
 import builders.zoom
 import builders.vscode
-
+# TODO build slack
 
 PACKAGES = {
     "base": (
+        "cmake",
         "curl",
         "curlie",
         "fd",
