@@ -43,6 +43,7 @@ PACKAGES = {
         "playerctl",
         # everything i3 related
         "i3-gaps",
+        "xss-lock",
         "i3lock",
         "i3exit",
         "python-i3ipc",

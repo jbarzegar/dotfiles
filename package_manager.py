@@ -85,7 +85,7 @@ class ManjaroPackager(Packager):
 
         try:
             res = subprocess.run(
-                cmd, check=True, shell=True, capture_output=True)
+                cmd, check=True, shell=True)
 
             return res
         except subprocess.CalledProcessError as err:
