@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from enum import Enum
 
 def noop(*args, **kwargs):
     return None
@@ -27,3 +28,19 @@ class colors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+
+class PSearchResult(Enum):
+    NOT_FOUND = "not_found",
+    FOUND = 'found'
+
+
+class Packager:
+    packager_name = '__omg_please_dont_use_me__'
+
+    def search(self, package_name, **kwargs):
+        pass
+
+    def install(self, package_name, **kwargs):
+        pass

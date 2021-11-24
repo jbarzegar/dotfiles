@@ -2,6 +2,7 @@
 
 import os
 import stat
+import shutil
 import subprocess
 from urllib.request import urlretrieve
 from pathlib import Path
@@ -35,16 +36,17 @@ def build(**kwargs):
 
     # move into bin
     binary_home_path = f"{Path.home()}/.local/bin"
+    binary_home_file_path = f"{binary_home_path}/fnm"
     os.makedirs(binary_home_path, exist_ok=True)
 
-    os.replace(binary_path, f"{binary_home_path}/fnm")
+    shutil.move(binary_path, binary_home_path)
 
     # mark as executable
-    os.chmod(binary_home_path, stat.S_IEXEC)
+    os.chmod(binary_home_file_path, stat.S_IEXEC)
 
     log('Installing latest node lts')
 
     # install node lts
-    subprocess.run([f"{binary_home_path}/fnm install --lts"], shell=True)
+    subprocess.run([f"{binary_home_file_path} install --lts"], shell=True)
 
     print('Install run, node should be ready when we load our env')

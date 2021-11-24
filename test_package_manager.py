@@ -2,9 +2,10 @@ import unittest
 import logging
 import sys
 
-from package_manager import PackageManager, ManjaroPackager, PSearchResult
+from package_manager import PackageManager
+from packagers.manjaro import ManjaroPackager
 
-from util import noop, yell
+from util import noop, yell, PSearchResult
 
 
 class MockPackager:

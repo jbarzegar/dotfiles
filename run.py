@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from packages import PACKAGES
-from package_manager import PackageManager, ManjaroPackager
+from package_manager import PackageManager
+from packagers.manjaro import ManjaroPackager
 
 packager = ManjaroPackager(install_options='--no-confirm')
 manager = PackageManager(packager, log=print)
