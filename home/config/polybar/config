@@ -51,9 +51,9 @@ padding-right = 4
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = Hack:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Hack:pixelsize=10;1
+font-2 = Hack:pixelsize=12;1
 
 modules-left = i3
 modules-center = time date
@@ -75,8 +75,9 @@ cursor-scroll = ns-resize
 
 [bar/primary]
 inherit = section/basicBar
-monitor = ${env:MONITOR:eDP-1}
-modules-right = memory cpu eth battery powermenu
+#monitor = ${env:MONITOR:eDP-1}
+modules-left = i3
+modules-right = memory cpu eth
 
 tray-position = right
 tray-padding = 4
@@ -84,8 +85,8 @@ tray-detached = false
 tray-maxsize=30
 
 
-dpi-x = 192
-dpi-y = 192
+#dpi-x = 192
+#dpi-y = 192
 
 
 
