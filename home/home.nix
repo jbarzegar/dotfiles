@@ -61,8 +61,9 @@
     recursive = true;
   };
 
-  home.file.".local" = {
-    source = ./local;
+  home.file.".local/bin" = {
+    source = ./local/bin;
+    executable = true;
     recursive = true;
   };
 }
