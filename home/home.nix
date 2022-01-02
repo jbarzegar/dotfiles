@@ -47,8 +47,6 @@
   home.file.".zshenv".source = ./.zshenv;
   home.file.".zshrc".source = ./.zshrc;
 
-
-
   # Basically just using `home-manager` as a glorified symlinking script for now.
   # Ideally, I port each config to the nix/home-manager way but doing it this way, lets me tackle each config one at a time.
   xdg.configFile = {
