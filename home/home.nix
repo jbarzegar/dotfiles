@@ -29,9 +29,6 @@
     enableSshSupport = true;
   };
 
-#  home.file.".zshrc".source = ./.zshrc;
-#
-
   programs.git = {
     enable = true;
     userEmail = "james.barzegar@gmail.com";
@@ -50,10 +47,25 @@
   home.file.".zshenv".source = ./.zshenv;
   home.file.".zshrc".source = ./.zshrc;
 
+  # Basically just using `home-manager` as a glorified symlinking script for now.
+  # Ideally, I port each config to the nix/home-manager way but doing it this way, lets me tackle each config one at a time.
   xdg.configFile = {
     "alacritty/alacritty.yml".source = ./config/alacritty/alacritty.yml;
     "i3/config".source = ./config/i3/config;
     "polybar/config".source = ./config/polybar/config;
+    "picom.conf".source = ./confg/picom.conf;
+    "theming" = {
+      source = ./config/theming;
+      recursive = true;
+    };
+    "rofi" = {
+      source = ./config/rofi;
+      recursive = true;
+    };
+    "i3status" = {
+      source = ./config/rofi;
+      recursive = true;
+    };
   };
 
   home.file.".doom.d" = {
