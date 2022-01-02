@@ -1,8 +1,5 @@
 ######## editor ########
-export VISUAL="emacsclient -n -c -a emacs"
-export EDITOR="emacsclient -t"
-
-alias edit="$VISUAL"
+export EDITOR="emacs"
 
 alias vi="nvim"
 alias vim="nvim"
@@ -35,7 +32,6 @@ alias gps="git-push-current-branch"
 # Load dev secrets
 #
 [ -s "$HOME/.config/.secrets" ] && source "$HOME/.config/.secrets"
-#. ~/.config/shell/.secrets
 
 # fnm
 export PATH=/home/james/.fnm:$PATH
@@ -44,18 +40,25 @@ eval "`fnm env`"
 
 SCM_BREE_DIR="$HOME/.scm_breeze/scm_breeze.sh"
 
-if [ -s "/home/james/.scm_breeze/scm_breeze.sh" ]; then 
+if [ -s "$SCM_BREE_DIR" ]; then 
 	source "$SCM_BREE_DIR"
 else
+	echo "Installing scm breeze"
+	sleep 1
 	git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 	~/.scm_breeze/install.sh
 fi
 
-alias disable_getty="sudo systemctl disable getty@tty2.service"
+if [ -s "$HOME/.emacs.d/bin/doom" ]; then
+  export PATH=$HOME/.emacs.d/bin:$PATH
+  doom env
+else
+  git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+  $HOME/.emacs.d/bin/doom install 
+fi
 
-export PATH=$HOME/.emacs.d/bin:$PATH
 
-doom env
+
 
 # THIS ALWAYS AT THE BOTTOM
-clear && dab 
+clear && $HOME/.local/bin/dab

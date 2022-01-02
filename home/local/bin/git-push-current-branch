@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Pushes provides branch or the current branch
 #
 #
