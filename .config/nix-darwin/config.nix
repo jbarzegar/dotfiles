@@ -23,6 +23,7 @@
     nixd
     nixfmt-rfc-style
     # other stuff
+    fastfetch
     fd
     fzf
     gh
