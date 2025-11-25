@@ -39,7 +39,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Iced Latte (Blur) [Heavy]",
-    "dark": "Terafox - blurred"
+    "dark": "Catppuccin Macchiato (Blur)"
   },
   "telemetry": {
     "metrics": false,
