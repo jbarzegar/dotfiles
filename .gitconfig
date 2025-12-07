@@ -1,0 +1,11 @@
+; TODO:
+; - Make this a templatable thingy
+[include]
+    path = "./.gitaliases"
+[user]
+	name = "James Barzegar"
+	email = "james.barzegar@gmail.com"
+[init]
+	defaultBranch = main
+
+; --- everything else ---

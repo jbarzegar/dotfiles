@@ -1,0 +1,3 @@
+[alias]
+    current-branch = rev-parse --abbrev-ref HEAD
+    root-dir = rev-parse HEAD --show-toplevel

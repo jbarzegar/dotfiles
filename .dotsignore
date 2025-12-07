@@ -1,0 +1,5 @@
+# .dotsignore follows the .gitignore spec
+# list files relative to the dot files staging area
+# These files will not be linked to your config directory
+.git
+

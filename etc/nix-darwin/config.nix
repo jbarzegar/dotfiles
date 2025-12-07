@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     # core stuff
     coreutils
+    chezmoi
     git
     git-extras
     nixd

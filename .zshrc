@@ -4,6 +4,7 @@
 alias vi="nvim"
 alias vim="nvim"
 alias reload="source ~/.zshrc"
+export EDITOR="nvim"
 
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/pure.omp.json)"

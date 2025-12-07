@@ -1,0 +1,7 @@
+dotfileDir = "$HOME/dev/dotfiles"
+
+[onChange]
+"*.nix" = "sudo darwin-rebuild switch"
+
+[links]
+".config/nix-darwin" = "/etc/nix-darwin"
