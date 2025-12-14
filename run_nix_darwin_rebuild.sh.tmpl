@@ -1,0 +1,49 @@
+#!/bin/sh
+# run_nix_darwin_rebuild will run when chezmoi apply runs The
+# script will determine if the nix config has updated by
+# calculating a checksum with nix-hash and compairing with a
+# cached hash if there's a mismatch (or can't produce a value)
+# `darwin-rebuild switch` will run
+
+# Get the nix config path
+# TODO/FIXME: Determine if this can be configurable
+# Although the need is fairly low since that config file wont move most likely
+NIX_DARWIN_PATH="{{ .chezmoi.workingTree }}/dot_config/nix-darwin"
+
+CACHE_DIR="{{ .chezmoi.cacheDir }}/dot_nix_darwin"
+# create the cache dir if it can't be found
+if ! [[ -d $CACHE_DIR ]]; then
+    mkdir -p $CACHE_DIR
+fi
+
+CACHED_NIX_HASH_DIR="$CACHE_DIR/nix_darwin_config_hash"
+
+function apply () {
+    echo "Applying nix config (sudo darwin-rebuild switch)"
+    sudo darwin-rebuild switch
+
+    # re apply nix hash to cache folder
+    echo "$(nix-hash $NIX_DARWIN_PATH)" >$CACHED_NIX_HASH_DIR
+}
+
+# get a nix hash from state
+CACHED_NIX_HASH="$(cat $CACHED_NIX_HASH_DIR 2>&1 /dev/null || echo '')"
+
+# Cached file is missing
+# force a darwin-rebuild switch
+if [[ $CACHED_NIX_HASH == "" ]]; then
+    echo "No Cached Nix Hash"
+    # no cache
+    apply
+    # exit early
+    exit 0
+fi
+
+# hash mismatch run a apply
+NEW_NIX_HASH="$(nix-hash $NIX_DARWIN_PATH)"
+if [[ $CACHED_NIX_HASH != $NEW_NIX_HASH ]]; then
+    echo "Nix config hash has changed"
+    echo "expected: $CACHED_NIX_HASH"
+    echo "got: $NEW_NIX_HASH"
+    apply
+fi
