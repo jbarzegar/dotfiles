@@ -5,9 +5,13 @@ alias vim="nvim"
 alias reload="source ~/.zshrc"
 export EDITOR="nvim"
 
+# chezmoi alias
+alias cz="chezmoi"
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/pure.omp.json)"
+# inits
 eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
 
 [ -s "/Users/james/.scm_breeze/scm_breeze.sh" ] && source "/Users/james/.scm_breeze/scm_breeze.sh"
-eval "$(zoxide init zsh)"
+alias glz="lazygit"
