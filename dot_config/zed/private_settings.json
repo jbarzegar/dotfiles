@@ -1,0 +1,76 @@
+{
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enable_preview_from_file_finder": true
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": false
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_user_picture": true,
+    "show_onboarding_banner": true,
+    "show_branch_name": true,
+    "show_branch_icon": true
+  },
+  "project_panel": {
+    "button": true
+  },
+  "preferred_line_length": 65,
+  "ui_font_family": "Iosevka",
+  "prettier": {
+    "allowed": false,
+  },
+  "format_on_save": "on",
+  "helix_mode": false,
+  "vim_mode": true,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme"
+  },
+  "ui_font_size": 17.0,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Iced Latte (Blur) [Heavy]",
+    "dark": "Catppuccin Macchiato (Blur)"
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "lsp": {
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--output.text.path="
+        ]
+      }
+    }
+  },
+  "languages": {
+    "Nix": {
+      "language_servers": [
+        "nixd",
+        "!nil"
+      ]
+    },
+    "Go": {
+      "language_servers": [
+        "gopls",
+        "golangci-lint"
+      ]
+    }
+  }
+}
