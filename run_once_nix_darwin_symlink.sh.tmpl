@@ -1,0 +1,10 @@
+#!/bin/sh
+
+NIX_DARWIN_PATH="{{ .chezmoi.workingTree }}/dot_config/nix-darwin"
+
+if [[ -L "/etc/nix-darwin" ]]; then
+    exit 0
+else
+    echo "linking nix darwin to /etc/nix-darwin"
+    sudo ln -s $NIX_DARWIN_PATH /etc/nix-darwin
+fi
