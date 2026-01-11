@@ -39,7 +39,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Iced Latte (Blur) [Heavy]",
-    "dark": "Catppuccin Macchiato (Blur)"
+    "dark": "Catppuccin Espresso (Blur)"
   },
   "telemetry": {
     "metrics": false,
