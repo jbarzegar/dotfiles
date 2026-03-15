@@ -65,6 +65,7 @@
     "ghostty"
     "hiddenbar"
     "insomnia"
+    "signal"
     "scroll-reverser"
     "spotify"
     "windscribe"
