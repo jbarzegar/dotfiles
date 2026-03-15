@@ -43,7 +43,7 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#Jamess-MacBook-Pro
-      darwinConfigurations."Jamess-MacBook-Pro-2.local" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."Jamess-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
         modules = [
           home-manager.darwinModules.home-manager
           configuration
