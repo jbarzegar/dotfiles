@@ -23,7 +23,7 @@ jobs:
           NUM_CHANGES="$(echo $DIFF | wc -lc)"
           echo "Change(s) $NUM_CHANGES"
 
-          if [[ $NUM_CHANGES -gt 0 ]];
+          if [[ "$NUM_CHANGES" -gt 0 ]]; then
             echo TODO MAKE PR w changes
-            echo $DIFF
+            echo "$DIFF"
           fi
