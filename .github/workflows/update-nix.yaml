@@ -20,10 +20,10 @@ jobs:
         working-directory: ./dot_config/nix-darwin
         run: |
           DIFF="$(git diff --name-only)"
-          NUM_CHANGES="$(echo $DIFF | wc -lc)"
-          echo "Change(s) $NUM_CHANGES"
+          NUM_CHANGES="$(echo $DIFF | wc -l)"
 
           if [[ "$NUM_CHANGES" -gt 0 ]]; then
+            echo "Change(s) $NUM_CHANGES"
             echo TODO MAKE PR w changes
             echo "$DIFF"
           fi
