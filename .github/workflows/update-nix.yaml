@@ -1,7 +1,6 @@
 name: "Update Nix"
 
 on:
-  pull_request:
   schedule:
     # https://crontab.guru/#0_0_*_*_6
     # Run weekly on saturday's
