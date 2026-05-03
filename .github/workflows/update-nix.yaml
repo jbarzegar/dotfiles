@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: "main"
       - uses: cachix/install-nix-action@v31.10.5
       - name: Update nix flake
         working-directory: ./dot_config/nix-darwin
@@ -25,5 +27,15 @@ jobs:
           if [[ "$NUM_CHANGES" -gt 0 ]]; then
             echo "Change(s) $NUM_CHANGES"
             echo TODO MAKE PR w changes
-            echo "$DIFF"
+            echo $DIFF
+            # Create PR
+            TODAY="$(date +"%Y-%m-%d")"
+            BRANCH_NAME="bot/nix-update-$TODAY"
+            git checkout -b "$BRANCH_NAME"
+            git add flake.nix
+            git commit -m "chore: update flake.nix $(date +"%Y-%m-%d")"
+            git push -u origin $BRANCH_NAME
+            gh pr create --title "Chore: Update nix flake ($TODAY)" --body "This is an automated nix flake update. Merge when ready" --reviewer "jbarzegar"
+          else
+            echo "No changes in flake detected"
           fi
