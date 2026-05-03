@@ -9,7 +9,9 @@ on:
 jobs:
   installs:
     runs-on: macos-latest
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v5
         with:
@@ -20,6 +22,8 @@ jobs:
         run: nix flake update
       - name: check for update
         working-directory: ./dot_config/nix-darwin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DIFF="$(git diff --name-only)"
           NUM_CHANGES="$(echo $DIFF | wc -l)"
