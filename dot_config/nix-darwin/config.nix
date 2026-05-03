@@ -2,7 +2,6 @@
   pkgs,
   ...
 }:
-
 {
   # Packages
   nixpkgs.config.allowUnfree = true;
@@ -36,7 +35,6 @@
     lazygit
     lnav
     lua
-    mise
     neovim
     oh-my-posh
     ranger
@@ -53,6 +51,9 @@
     appdir = "/Applications";
     require_sha = true;
   };
+  homebrew.brews = [
+    "mise"
+  ];
   homebrew.casks = [
     "appcleaner"
     # window manager
