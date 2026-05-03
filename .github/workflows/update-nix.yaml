@@ -32,7 +32,7 @@ jobs:
             TODAY="$(date +"%Y-%m-%d")"
             BRANCH_NAME="bot/nix-update-$TODAY"
             git checkout -b "$BRANCH_NAME"
-            git add flake.nix
+            git add flake.lock
             git commit -m "chore: update flake.nix $(date +"%Y-%m-%d")"
             git push -u origin $BRANCH_NAME
             gh pr create --title "Chore: Update nix flake ($TODAY)" --body "This is an automated nix flake update. Merge when ready" --reviewer "jbarzegar"
