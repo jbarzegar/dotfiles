@@ -1,0 +1,15 @@
+name: "Check macOS"
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31.10.5
+      - name: Copy nix config
+        run: sudo ln -s ./dot_config/nix-darwin /etc/nix-darwin
+      - name: Run nix-darwin switch
+        run: sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- check
