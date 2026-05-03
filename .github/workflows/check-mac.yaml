@@ -14,12 +14,4 @@ jobs:
 
       - name: Checking nix build
         run: |
-          sudo dscl . -create /Users/james
-          sudo dscl . -create /Users/james UserShell /bin/bash
-          sudo dscl . -create /Users/james GroupID "501"
-          sudo dscl . -create /Users/james PrimaryGroupID 80
-          sudo dscl . -create /Users/james NFSHomeDirectory /Users/james
-          sudo dscl . -append /Groups/admin GroupMembership james
-          dscl . list /Users
-          sudo su - james
           sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- switch
