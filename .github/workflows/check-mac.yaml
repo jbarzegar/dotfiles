@@ -16,9 +16,7 @@ jobs:
           sudo dscl . -append /Groups/admin GroupMembership james
           su - james
       - name: Copy nix config
-        run: |
-          su - james
-          sudo ln -s ./dot_config/nix-darwin /etc/nix-darwin
+        run: sudo ln -s ./dot_config/nix-darwin /etc/nix-darwin
 
       - name: Checking nix build
         run: |
