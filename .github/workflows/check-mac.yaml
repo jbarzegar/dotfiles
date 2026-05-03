@@ -14,11 +14,10 @@ jobs:
           sudo dscl . -create /Users/james
           sudo dscl . -create /Users/james UserShell /bin/bash
           sudo dscl . -append /Groups/admin GroupMembership james
-          su - james
       - name: Copy nix config
         run: sudo ln -s ./dot_config/nix-darwin /etc/nix-darwin
 
       - name: Checking nix build
         run: |
-          su - james
+          sudo su - james
           sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- switch
