@@ -1,0 +1,29 @@
+name: "Update Nix"
+
+on:
+  pull_request:
+  schedule:
+    # https://crontab.guru/#0_0_*_*_6
+    # Run weekly on saturday's
+    - cron: "0 0 * * 6"
+jobs:
+  installs:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31.10.5
+      - name: Update nix flake
+        working-directory: ./dot_config/nix-darwin
+        run: nix flake update
+      - name: check for update
+        working-directory: ./dot_config/nix-darwin
+        run: |
+          DIFF="$(git diff --name-only)"
+          NUM_CHANGES="$(echo $DIFF | wc -lc)"
+          echo "Change(s) $NUM_CHANGES"
+
+          if [[ $NUM_CHANGES -gt 0 ]];
+            echo TODO MAKE PR w changes
+            echo $DIFF
+          fi
