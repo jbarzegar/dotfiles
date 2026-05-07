@@ -20,12 +20,13 @@
     }:
     let
       configuration =
-        { ... }:
+        { pkgs, ... }:
         {
           system.primaryUser = "james";
           # environment.systemPackages = [ pkgs.vim ];
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
+          nix.package = pkgs.lixPackageSets.stable.lix;
 
           # set commit has for darwin-version
           system.configurationRevision = self.rev or self.dirtyRev or null;
