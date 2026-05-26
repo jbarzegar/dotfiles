@@ -33,6 +33,7 @@
     httpie
     jq
     lazygit
+    lazyssh
     lnav
     lua
     neovim
