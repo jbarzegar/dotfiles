@@ -58,7 +58,7 @@
   homebrew.casks = [
     "appcleaner"
     # window manager
-    "nikitabobko/tap/aerospace"
+#    "nikitabobko/tap/aerospace"
     "discord"
     # docker/containers
     "orbstack"

@@ -50,7 +50,7 @@
           configuration
           ./config.nix
           ./darwin.nix
-          ./aerospace.nix # Setup windowmanager
+          # ./aerospace.nix # Setup windowmanager
         ];
       };
     };

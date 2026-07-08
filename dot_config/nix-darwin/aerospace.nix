@@ -1,6 +1,6 @@
 { ... }:
 {
-  services.aerospace.enable = true;
+  services.aerospace.enable = false;
   services.aerospace.settings = {
 
     # Start AeroSpace at login
