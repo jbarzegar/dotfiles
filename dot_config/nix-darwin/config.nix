@@ -6,12 +6,6 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
 
-  # TODO: add fonts
-  fonts.packages = with pkgs; [
-    iosevka
-    hack-font
-  ];
-
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -22,6 +16,11 @@
     git-extras
     nixd
     nixfmt-rfc-style
+    kubectl
+    kubectx
+    k9s
+    jsonnet
+    libplist
     # other stuff
     fastfetch
     fd

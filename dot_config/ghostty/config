@@ -6,6 +6,6 @@ window-padding-y = 8
 background-opacity = 0.8
 background-blur = true
 
-font-family = Iosveska
+font-family = "Maple Mono NL NF CN"
 font-style = Medium
 font-size = 18
