@@ -1,0 +1,73 @@
+theme = "catppuccin_mocha"
+
+[editor]
+bufferline = "always"
+trim-trailing-whitespace = true
+popup-border = "all"
+
+
+# https://docs.helix-editor.com/editor.html#editorstatusline-section
+[editor.statusline]
+left = ["spinner", "mode", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error", "info"]
+workspace-diagnostics = ["warning", "error", "info"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 40
+
+[keys.insert]
+"C-space" = "completion"
+
+[keys.select]
+S-u = "switch_to_uppercase"
+u = "switch_to_lowercase"
+
+[keys.normal."space"]
+space = "command_palette"
+
+# Open layer
+[keys.normal."space"."o"]
+o = "file_picker"
+w = "file_explorer"
+f = [
+   ':edit %sh{~/.local/bin/hx-open-in-zellij --pipe-stdout=true --cwd=$PWD xplr}',
+]
+
+# Search Layer
+[keys.normal."space"."s"]
+s = ":open %sh{hx-open-in-zellij --pipe-stdout=true --cwd=$PWD search-files | tr ' ' ':' }"
+
+
+# Code layer
+[keys.normal."space"."c"]
+s = "symbol_picker"
+
+[keys.normal.space."g"]
+# open lazygit
+g = [
+   ":sh ~/.local/bin/hx-open-in-zellij lazygit &> /dev/null"
+]
+
+

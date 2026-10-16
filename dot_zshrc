@@ -1,17 +1,44 @@
 #!/bin/bash
+autoload -Uz compinit
+compinit
 # aliases
 alias vi="nvim"
 alias vim="nvim"
 alias reload="source ~/.zshrc"
-export EDITOR="nvim"
-
+alias cls="clear"
 # chezmoi alias
 alias cz="chezmoi"
+## Git things
+alias glz="lazygit"
+alias kubectl="kubecolor"
 
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/pure.omp.json)"
+LG_CONFIG_BASE="$HOME/Library/Application Support/lazygit/"
+export LG_CONFIG_FILE="$LG_CONFIG_BASE/theme.yml,$LG_CONFIG_BASE/config.yml"
+export EDITOR="hx"
+export PATH="$PATH:$HOME/.local/bin"
+export TERM_THEME="Catppuccin Mocha"
+
+[ -s "/Users/james/.scm_breeze/scm_breeze.sh" ] && source "/Users/james/.scm_breeze/scm_breeze.sh"
+
 # inits
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/pure.omp.json)"
 
-[ -s "/Users/james/.scm_breeze/scm_breeze.sh" ] && source "/Users/james/.scm_breeze/scm_breeze.sh"
-alias glz="lazygit"
+zi () {
+  zoxide query -i
+}
+
+# override zoxide's default z behaviour
+# uses an interactive search if no args provided
+# otherwise will act as the default
+z () {
+  out="$*"
+  # interactive on empty input
+  if [[ $out == "" ]]; then
+    __zoxide_cd "$(zoxide query -i)" || exit 1
+  else
+    __zoxide_z "$@"
+  fi
+}
+

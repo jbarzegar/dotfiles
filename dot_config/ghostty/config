@@ -1,4 +1,4 @@
-theme = Ayu
+theme = "Catppuccin Mocha"
 
 window-padding-x = 15
 window-padding-y = 8

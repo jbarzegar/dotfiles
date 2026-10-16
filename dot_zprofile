@@ -1,0 +1,36 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Add GNU coreutils to PATH
+if [ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]; then
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
+# Add GNU sed
+if [ -d "/opt/homebrew/opt/gnu-sed/libexec/gnubin" ]; then
+    export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+fi
+
+# Add GNU findutils
+if [ -d "/opt/homebrew/opt/findutils/libexec/gnubin" ]; then
+    export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+fi
+
+# Add GNU tar
+if [ -d "/opt/homebrew/opt/gnu-tar/libexec/gnubin" ]; then
+    export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+fi
+
+# Add grep (Homebrew's grep is already GNU grep, no gnubin needed)
+if [ -d "/opt/homebrew/opt/grep/libexec/gnubin" ]; then
+    export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+fi
+
+# Add man pages for GNU tools
+if [ -d "/opt/homebrew/opt/coreutils/libexec/gnuman" ]; then
+    export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+

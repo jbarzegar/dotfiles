@@ -1,0 +1,250 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "keybinding": "vim",
+   "global_shortcuts": {
+      "toggle": "control+SPACE"
+   },
+   "font": {
+      "rendering": "native",
+      "normal": {
+         "family": "Maple Mono NL NF CN",
+         "size": 14
+      }
+   },
+   "theme": {
+      "light": {
+         "name": "catppuccin-latte"
+      },
+      "dark": {
+         "name": "catppuccin-mocha"
+      }
+   },
+   "launcher_window": {
+      "opacity": 0.5,
+      "compact_mode": {
+         "enabled": true
+      },
+      "material": "liquid_glass"
+   },
+   "providers": {
+      "applications": {
+         "entrypoints": {
+            "app.zen-browser.zen": {
+               "alias": "browser"
+            },
+            "com.1password.1password": {
+               "alias": "op"
+            },
+            "com.1password.safari": {
+               "enabled": false
+            },
+            "com.apple.AboutThisMacLauncher": {
+               "enabled": false
+            },
+            "com.apple.Chess": {
+               "enabled": false
+            },
+            "com.apple.FaceTime": {
+               "enabled": false
+            },
+            "com.apple.FolderActionsSetup": {
+               "enabled": false
+            },
+            "com.apple.GenerativePlaygroundApp": {
+               "enabled": false
+            },
+            "com.apple.Home": {
+               "enabled": false
+            },
+            "com.apple.IPAInstaller": {
+               "enabled": false
+            },
+            "com.apple.Image_Capture": {
+               "enabled": false
+            },
+            "com.apple.MigrateAssistant": {
+               "enabled": false
+            },
+            "com.apple.MobileSMS": {
+               "enabled": false
+            },
+            "com.apple.Music": {
+               "enabled": false
+            },
+            "com.apple.Notes": {
+               "enabled": false
+            },
+            "com.apple.Safari": {
+               "enabled": false
+            },
+            "com.apple.ScreenContinuity": {
+               "enabled": false
+            },
+            "com.apple.ScreenSharing": {
+               "enabled": true
+            },
+            "com.apple.ScriptEditor2": {
+               "enabled": false
+            },
+            "com.apple.Stickies": {
+               "enabled": false
+            },
+            "com.apple.TV": {
+               "enabled": false
+            },
+            "com.apple.Terminal": {
+               "enabled": false
+            },
+            "com.apple.Ticket-Viewer": {
+               "enabled": false
+            },
+            "com.apple.VoiceMemos": {
+               "enabled": false
+            },
+            "com.apple.airport.airportutility": {
+               "enabled": false
+            },
+            "com.apple.appleseed.FeedbackAssistant": {
+               "enabled": false
+            },
+            "com.apple.apps.launcher": {
+               "enabled": false
+            },
+            "com.apple.audio.AudioMIDISetup": {
+               "enabled": false
+            },
+            "com.apple.calculator": {
+               "alias": "calc"
+            },
+            "com.apple.exposelauncher": {
+               "enabled": false
+            },
+            "com.apple.finder.Open-AirDrop": {
+               "enabled": false
+            },
+            "com.apple.finder.Open-Recents": {
+               "enabled": false
+            },
+            "com.apple.finder.Open-iCloudDrive": {
+               "enabled": false
+            },
+            "com.apple.findmy": {
+               "enabled": false
+            },
+            "com.apple.games": {
+               "enabled": false
+            },
+            "com.apple.grapher": {
+               "enabled": false
+            },
+            "com.apple.helpviewer": {
+               "enabled": false
+            },
+            "com.apple.iBooksX": {
+               "enabled": false
+            },
+            "com.apple.iCal": {
+               "alias": "cl"
+            },
+            "com.apple.journal": {
+               "enabled": false
+            },
+            "com.apple.mobilephone": {
+               "enabled": false
+            },
+            "com.apple.news": {
+               "enabled": false
+            },
+            "com.apple.screenshot.launcher": {
+               "alias": "sc"
+            },
+            "com.apple.siri.launcher": {
+               "enabled": false
+            },
+            "com.apple.stocks": {
+               "enabled": false
+            },
+            "com.insomnia.app": {
+               "alias": "api"
+            },
+            "com.mitchellh.ghostty": {
+               "alias": "term"
+            },
+            "com.spotify.client": {
+               "alias": "music"
+            },
+            "dev.zed.Zed": {
+               "alias": "code"
+            },
+            "exolabs.EXO": {
+               "alias": "ai"
+            }
+         }
+      },
+      "macos-settings": {
+         "entrypoints": {
+            "com.apple.Classroom-Settings.extension": {
+               "enabled": false
+            },
+            "com.apple.Siri-Settings.extension": {
+               "enabled": false
+            }
+         }
+      },
+      "scripts": {
+         "enabled": false,
+         "preferences": {
+            "customDirs": []
+         }
+      },
+      "shortcuts": {
+         "enabled": true,
+         "entrypoints": {
+            "sct-a3f54e24a9ac": {
+               "alias": "wf"
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "run": {
+               "alias": ">"
+            },
+            "toggle-mute": {
+               "enabled": false
+            },
+            "volume-0": {
+               "enabled": false
+            },
+            "volume-100": {
+               "enabled": false
+            },
+            "volume-25": {
+               "enabled": false
+            },
+            "volume-50": {
+               "enabled": false
+            },
+            "volume-75": {
+               "enabled": false
+            },
+            "volume-down": {
+               "enabled": false
+            },
+            "volume-up": {
+               "enabled": false
+            }
+         }
+      }
+   }
+}
