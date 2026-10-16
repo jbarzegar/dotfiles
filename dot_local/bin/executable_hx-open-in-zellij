@@ -1,0 +1,73 @@
+#!/usr/bin/env nu
+# hx-open-in-zellij will attempt to manage a "cmd" instance.
+# if not in a zellij instance the script will fail
+# if it is - it will reopen a new session with $CMD if one is found (via title)
+# otherwise it will attempt to open a new one
+# right now, sizes, and floating are set by default
+# this script IS NOT intended to be used by anything other than helix(`hx`)
+#
+
+def get_existing_pane_id [c] {
+  let paneID = zellij ac list-panes -j
+    | jq --arg cmd $"($c)" '.[] | select(.title | contains($cmd)) | .id'
+
+  return $paneID
+}
+
+def run_zellij [cmd: string width: string height: string, cwd: string = "" pipeStdout: bool = false] {
+    mut args = [
+      -c
+      -n ($cmd)
+      --block-until-exit
+      --floating
+      --width ($width)
+      --height ($height)
+    ]
+    if (is-not-empty $cwd) {
+      append args $"--cwd ($cwd)"
+    }
+
+    let tempfpath: string = match ($pipeStdout) {
+      true => $"hx-cmd-($cmd)-($env.ZELLIJ_SESSION_NAME)-($env.ZELLIJ_PANE_ID)"
+      _ => ""
+    }
+
+
+    let result = (zellij run ...$args -- bash -c $'($cmd) | tee -a /tmp/($tempfpath)')
+    let stdout = (cat ($tempfpath))
+
+    return $stdout
+  }
+
+let sizes = { width: "90%", height: "70%" }
+
+def main [
+  ...argv,
+  --cwd: string = ""
+  --pipe-stdout = false
+] {
+  # Bail early if not in a zellij session
+  if (($env.ZELLIJ_SESSION_NAME? | default "") == "") {
+    return "Not a zellij Session! Please start hx in a zellij session first"
+  }
+  # Bail early if not in a zellij session
+  if (is-not-empty $env.ZELLIJ_SESSION_NAME) {
+    return "Not a zellij Session! Please start hx in a zellij session first"
+  }
+
+  # convert argv to join to string
+  let CMD = $argv | str join ' '
+  let CMD_PANE_ID = get_existing_pane_id $CMD | default ""
+
+  if (is-empty $CMD_PANE_ID) {
+    let termID = run_zellij $CMD $sizes.width $sizes.height $cwd $pipe_stdout
+    # return to thing
+    zellij ac focus-last-pane
+    return $termID
+  }
+
+  # open current
+  zellij ac focus-pane-id $CMD_PANE_ID
+
+  return $"re-opening ($CMD) paneID=($CMD_PANE_ID)"
+}
