@@ -1,16 +1,17 @@
 tap "barutsrb/tap", "https://github.com/BarutSRB/homebrew-tap", trusted: { casks: ["omniwm"] }
+tap "homebrew/core"
 # Language Server for Bash
 brew "bash-language-server"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# Readline wrapper: adds readline support to tools that lack it
-brew "rlwrap"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Debugger for the Go programming language
 brew "delve"
+# TIFF library and utilities
+brew "libtiff"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -27,6 +28,8 @@ brew "gawk"
 brew "gh"
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Small git utilities
 brew "git-extras"
 # Alternative to top/htop
@@ -83,6 +86,8 @@ brew "nushell"
 brew "oh-my-posh"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Readline wrapper: adds readline support to tools that lack it
+brew "rlwrap"
 # Interactive find and replace in the terminal
 brew "scooter"
 # Static analysis and lint tool, for (ba)sh scripts
