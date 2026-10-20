@@ -18,7 +18,7 @@ export EDITOR="hx"
 export PATH="$PATH:$HOME/.local/bin"
 export TERM_THEME="Catppuccin Mocha"
 
-[ -s "/Users/james/.scm_breeze/scm_breeze.sh" ] && source "/Users/james/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # inits
 eval "$(mise activate zsh)"
