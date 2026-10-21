@@ -55,7 +55,7 @@ w = "file_explorer"
 #    ':edit %sh{hx-open-in-zellij --pipe-stdout=true --cwd=$PWD ~/.local/bin/hx-open-file-explorer}',
 # ]
 f = [
-   ':edit %sh{~/.local/bin/hx-open-file-explorer}',
+   ':edit %sh{~/.local/bin/hx-open-file-explorer "%{buffer_name}"}',
    ]
 
 # Search Layer
