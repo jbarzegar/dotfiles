@@ -1,0 +1,9 @@
+#!/usr/bin/env nu
+#
+ def main [
+  --level (-L)=2
+  dir="."
+ ] {
+
+  eza --tree --icons -L=($level) ($dir)
+ }

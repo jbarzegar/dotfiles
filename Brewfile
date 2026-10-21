@@ -110,8 +110,8 @@ brew "tombi"
 brew "typescript-language-server"
 # Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode
 brew "vscode-langservers-extracted"
-# Hackable, minimal, fast TUI file explorer
-brew "xplr"
+#Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature

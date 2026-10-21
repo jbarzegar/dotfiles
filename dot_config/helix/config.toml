@@ -51,9 +51,12 @@ space = "command_palette"
 [keys.normal."space"."o"]
 o = "file_picker"
 w = "file_explorer"
+# f = [
+#    ':edit %sh{hx-open-in-zellij --pipe-stdout=true --cwd=$PWD ~/.local/bin/hx-open-file-explorer}',
+# ]
 f = [
-   ':edit %sh{~/.local/bin/hx-open-in-zellij --pipe-stdout=true --cwd=$PWD xplr}',
-]
+   ':edit %sh{~/.local/bin/hx-open-file-explorer}',
+   ]
 
 # Search Layer
 [keys.normal."space"."s"]
